@@ -28,26 +28,94 @@ Complete the quiz shown below. It's a set of 6 multiple-choice questions to test
 
 1) Within the execution for `Yellow` Taxi data for the year `2020` and month `12`: what is the uncompressed file size (i.e. the output file `yellow_tripdata_2020-12.csv` of the `extract` task)?
 
-- 128.3 MiB
+- 134.5 MiB
 
 1) What is the rendered value of the variable `file` when the inputs `taxi` is set to `green`, `year` is set to `2020`, and `month` is set to `04` during execution?
 
 - `green_tripdata_2020-04.csv`
 
 1) How many rows are there for the `Yellow` Taxi data for all CSV files in the year 2020?
+    ```
+    SELECT COUNT(*) AS total_rows_2020
+    FROM (
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_01_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_02_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_03_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_04_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_05_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_06_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_07_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_08_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_09_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_10_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_11_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.yellow_tripdata_2020_12_ext`
+    );
+    ```
+
+    | Row | total_rows_2020 |
+    |-----|-----------------|
+    | 1   | 24,648,499      |
 
 - 24,648,499
 
 1) How many rows are there for the `Green` Taxi data for all CSV files in the year 2020?
+    ```
+    SELECT COUNT(*) AS total_rows_2020
+    FROM (
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_01_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_02_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_03_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_04_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_05_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_06_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_07_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_08_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_09_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_10_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_11_ext`
+    UNION ALL
+    SELECT * FROM `kestra-week-2.zoomcamp.green_tripdata_2020_12_ext`
+    );
+    ```
+    | Row | total_rows_2020 |
+    | --- | ---------------- |
+    | 1   | 1734051         |
 
 - 1,734,051
 
 1) How many rows are there for the `Yellow` Taxi data for the March 2021 CSV file?
-
+    ```
+    SELECT COUNT(*) AS total_rows_2021_03
+    FROM `kestra-week-2.zoomcamp.yellow_tripdata_2021_03_ext`;
+    ```
+    | Row | total_rows_2021_03 |
+    | --- | ------------------ |
+    | 1   | 1925152            |
 - 1,925,152
 
 1) How would you configure the timezone to New York in a Schedule trigger?
  
 - Add a `timezone` property set to `America/New_York` in the `Schedule` trigger configuration
-
 
